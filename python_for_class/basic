@@ -4,3 +4,26 @@ print(100," abc ",60,sep="/")
 name="abcd"
 scor=61
 print("%s score is %d" %(name,scor))
+
+#if
+g=10
+if(g==10):
+    print("good")
+
+#if else
+g=13
+if(g==10):
+    print("good")
+else:
+    print("not bad")
+    
+#if elif else
+g=13
+if(g==10):
+    print("good")
+elif(g==11):
+    print("bad")
+elif(g==12):
+    print("better")
+else:
+    print("not bad")
