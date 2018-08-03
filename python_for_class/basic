@@ -1,1 +1,6 @@
+print(100,60,sep="/",end="")
+print(100," abc ",60,sep="/")
 
+name="abcd"
+scor=61
+print("%s score is %d" %(name,scor))
