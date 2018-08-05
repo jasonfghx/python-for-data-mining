@@ -1,0 +1,6 @@
+data1 = pd.read_csv(f,header=None,sep="\s")
+dataname=pd.read_csv("ColumnName.csv",header=None,sep=",")
+data1=pd.read_csv("Kidney.csv",header=0,sep=",")
+data1=data1.replace('?', "nan")
+
+data1[['blood pressure',"age","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]]=data1[['blood pressure',"age","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]].astype(float)
