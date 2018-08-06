@@ -65,4 +65,6 @@ pedal edema                 14
 anemia                      14
 class                       13
 ###############################################
+#分離類別和連續變數
+datafloat=data1[["age","blood pressure","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]]
 
