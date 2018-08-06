@@ -4,3 +4,13 @@ data1=pd.read_csv("Kidney.csv",header=0,sep=",")
 data1=data1.replace('?', "nan")
 
 data1[['blood pressure',"age","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]]=data1[['blood pressure',"age","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]].astype(float)
+
+#NA範例
+df = pd.DataFrame([[np.nan, 2, np.nan, 0,10], [3,5, 4, np.nan, 1],
+                    [np.nan, np.nan, np.nan, 5,np.nan],[np.nan, np.nan, np.nan, np.nan,np.nan],[4, np.nan, np.nan, 5,np.nan]],
+                   columns=list('ABCDE'))
+df.dropna(thresh=3)       
+a1=data1.dropna(subset = ['class'])
+from sklearn import preprocessing
+imr = preprocessing.Imputer(strategy='median')
+data1.iloc[:,0] = imr.fit_transform(pd.DataFrame(data1.iloc[:,0]))
