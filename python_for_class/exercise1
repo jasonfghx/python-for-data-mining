@@ -3,3 +3,66 @@ data1 = data1.replace ('?',np.NaN)
 data1.columns
 data1[['blood pressure',"age","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]]=data1[['blood pressure',"age","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"]].astype(float)
 data1[["albumin","sugar","red blood cells","pus cell","pus cell clumps","bacteria","hypertension","diabetes mellitus","coronary artery disease","appetite","pedal edema","anemia","class"]]=data1[["albumin","sugar","red blood cells","pus cell","pus cell clumps","bacteria","hypertension","diabetes mellitus","coronary artery disease","appetite","pedal edema","anemia","class"]].astype('category')
+
+###############################################
+data1.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 400 entries, 0 to 399
+Data columns (total 25 columns):
+age                        391 non-null float64
+blood pressure             388 non-null float64
+specific gravity           353 non-null float64
+albumin                    354 non-null category
+sugar                      351 non-null category
+red blood cells            248 non-null category
+pus cell                   335 non-null category
+pus cell clumps            396 non-null category
+bacteria                   396 non-null category
+blood glucose random       356 non-null float64
+blood urea                 381 non-null float64
+serum creatinine           383 non-null float64
+sodium                     313 non-null float64
+potassium                  312 non-null float64
+hemoglobin                 348 non-null float64
+packed cell volume         328 non-null float64
+white blood cell count     291 non-null float64
+red blood cell count       266 non-null float64
+hypertension               392 non-null category
+diabetes mellitus          387 non-null category
+coronary artery disease    385 non-null category
+appetite                   386 non-null category
+pedal edema                386 non-null category
+anemia                     386 non-null category
+class                      387 non-null category
+dtypes: category(13), float64(12)
+memory usage: 44.1 KB
+###############################################
+data1.isnull().sum()
+Out[491]: 
+age                          9
+blood pressure              12
+specific gravity            47
+albumin                     46
+sugar                       49
+red blood cells            152
+pus cell                    65
+pus cell clumps              4
+bacteria                     4
+blood glucose random        44
+blood urea                  19
+serum creatinine            17
+sodium                      87
+potassium                   88
+hemoglobin                  52
+packed cell volume          72
+white blood cell count     109
+red blood cell count       134
+hypertension                 8
+diabetes mellitus           13
+coronary artery disease     15
+appetite                    14
+pedal edema                 14
+anemia                      14
+class                       13
+###############################################
+
