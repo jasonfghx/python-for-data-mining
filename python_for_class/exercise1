@@ -72,8 +72,9 @@ data2_nona=data1.dropna(subset = ['class'])
 #NA處理##############################################
 a=0
 te=np.zeros(5)
-for i in range(0,387):
-    if datacat["class"][i]=="notckd" and pd.isnull(datacat.iloc[i,0]):
+ind=datacat.index
+for i in ind:
+    if datacat["class"][i]=="notckd" and pd.isnull(datacat.loc[i,"albumin"]):
        print(i)
        te[a]=i
        a=a+1
@@ -84,6 +85,12 @@ datacat=datacat.dropna(subset = ['albumin'])
 for i in range(0,387):
     if  datacat["albumin"][i]==pd.np.nan:
         print(1) 
+        
+#sugar        
+a=np.where(pd.isnull(datacat.iloc[:,1]))[0]
+a.describe()
+datacat["sugar"]=datacat["sugar"].fillna("0")
+datacat["sugar"].describe()  
 #NA處理##############################################
 
 #分離類別和連續變數
