@@ -70,10 +70,13 @@ class                       13
 data2_nona=data1.dropna(subset = ['class'])
 
 #NA處理##############################################
+a=0
+te=np.zeros(5)
 for i in range(0,387):
     if datacat["class"][i]=="notckd" and pd.isnull(datacat.iloc[i,0]):
         print(1)
 
+####錯誤示範######
 for i in range(0,387):
     if  datacat["albumin"][i]==pd.np.nan:
         print(1) 
