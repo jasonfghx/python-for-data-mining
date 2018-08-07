@@ -79,7 +79,7 @@ for i in ind:
        te[a]=i
        a=a+1
 
-datacat["albumin"][te]=datacat["albumin"][te].replace("nan","0")
+datacat["albumin"][te]=datacat["albumin"][te].replace(np.nan,"0")
 datacat=datacat.dropna(subset = ['albumin']) 
 ####錯誤示範######
 for i in range(0,387):
