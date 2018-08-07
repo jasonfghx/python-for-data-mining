@@ -88,7 +88,8 @@ for i in range(0,387):
         
 #sugar        
 a=np.where(pd.isnull(datacat.iloc[:,1]))[0]
-a.describe()
+a
+
 datacat["sugar"]=datacat["sugar"].fillna("0")
 datacat["sugar"].describe()  
 #NA處理##############################################
