@@ -74,8 +74,12 @@ a=0
 te=np.zeros(5)
 for i in range(0,387):
     if datacat["class"][i]=="notckd" and pd.isnull(datacat.iloc[i,0]):
-        print(1)
+       print(i)
+       te[a]=i
+       a=a+1
 
+datacat["albumin"][te]=datacat["albumin"][te].replace("nan","0")
+datacat=datacat.dropna(subset = ['albumin']) 
 ####錯誤示範######
 for i in range(0,387):
     if  datacat["albumin"][i]==pd.np.nan:
