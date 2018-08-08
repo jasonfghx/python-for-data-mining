@@ -99,16 +99,19 @@ datafloat=data1[["age","blood pressure","specific gravity","blood glucose random
 datacat=data1.drop(["age","blood pressure","specific gravity","blood glucose random","blood urea","serum creatinine","sodium","potassium","hemoglobin","packed cell volume","white blood cell count","red blood cell count"],axis=1)
 
 ##############增加欄位#######################
-datacat[["pus_cell",""]]="0"
-datacat["pus_cell_clumps"]="0"
-datacat["bacteria_"]="0"
-datacat["hypertension_"]="0"
-datacat["diabetes_mellitus"]="0"
-datacat["coronary_artery_disease"]="0"
-datacat["appetite_"]="0"
-datacat["pedal_edema"]="0"
-datacat["anemia_"]="0"
-datacat["class_"]="0"
+data2_nona["albumin_"]="0"
+data2_nona["sugar_"]="0"
+data2_nona["red_blood_cells"]="0"
+data2_nona["pus_cell"]="0"
+data2_nona["pus_cell_clumps"]="0"
+data2_nona["bacteria_"]="0"
+data2_nona["hypertension_"]="0"
+data2_nona["diabetes_mellitus"]="0"
+data2_nona["coronary_artery_disease"]="0"
+data2_nona["appetite_"]="0"
+data2_nona["pedal_edema"]="0"
+data2_nona["anemia_"]="0"
+data2_nona["class_"]="0"
 ##############增加欄位#######################
 ##############轉num#######################
 for i in ind1:
