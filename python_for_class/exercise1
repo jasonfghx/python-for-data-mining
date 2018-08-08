@@ -203,7 +203,10 @@ for i in ind1:
         data2_nona["class_"][i]="2"
     elif pd.isnull(data2_nona["class"][i]):
         data2_nona["class_"][i]=np.nan 
-
-
-
-
+###################################################
+data2_imp=data2_nona.drop(["class","anemia","pedal edema","appetite","coronary artery disease","diabetes mellitus","hypertension","bacteria","pus cell clumps","pus cell","red blood cells","pus cell clumps"],axis=1)
+data2_imp.to_csv("123.csv")#輸出檔案用R填補遺漏值
+names1=data2_imp.columns#取欄名
+data1_new=pd.read_csv("impute.csv",header=None,sep=",",names=names1)
+#將類別變數四捨五入
+data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]]=round(data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]])
