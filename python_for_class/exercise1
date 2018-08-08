@@ -210,7 +210,7 @@ names1=data2_imp.columns#取欄名
 data1_new=pd.read_csv("impute.csv",header=None,sep=",",names=names1)
 #將類別變數四捨五入
 data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]]=round(data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]])
-
+data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]]=data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]].astype('category')
 #轉啞變數
 dummydata=pd.get_dummies(data1_new)
 
