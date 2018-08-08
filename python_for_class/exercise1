@@ -213,3 +213,13 @@ data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bac
 
 #轉啞變數
 dummydata=pd.get_dummies(data1_new)
+
+##############離群值
+cols = list(["age","blood pressure","specific gravity","blood glucose random","blood urea","serum creatinine",'sodium','potassium','hemoglobin','packed cell volume','white blood cell count', 'red blood cell count'])
+
+dummydata[cols]
+for col in cols:
+    col_zscore = col + '_zscore'
+    dummydata[col_zscore] = (dummydata[col] - dummydata[col].mean())/dummydata[col].std(ddof=0)
+    
+np.where(dummydata["potassium_zscore"]>12)   
