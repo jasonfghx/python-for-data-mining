@@ -115,108 +115,95 @@ data2_nona["class_"]="0"
 ##############增加欄位#######################
 ##############轉num#######################
 for i in ind1:
-    if datacat["red blood cells"][i]=="normal":
-        datacat["red_blood_cells"][i]="1"
-    elif datacat["red blood cells"][i]=="abnormal":
-        datacat["red_blood_cells"][i]="2"
-    elif pd.isnull(datacat["red blood cells"][i]):
-        datacat["red_blood_cells"][i]=np.nan
+    if data2_nona["red blood cells"][i]=="normal":
+        data2_nona["red_blood_cells"][i]="1"
+    elif data2_nona["red blood cells"][i]=="abnormal":
+        data2_nona["red_blood_cells"][i]="2"
+    elif pd.isnull(data2_nona["red blood cells"][i]):
+        data2_nona["red_blood_cells"][i]=np.nan
 
 for i in ind1:
-    if datacat["pus cell"][i]=="normal":
-        datacat["pus_cell"][i]="1"
-    elif datacat["pus cell"][i]=="abnormal":
-        datacat["pus_cell"][i]="2"
-    elif pd.isnull(datacat["pus cell"][i]):
-        datacat["pus_cell"][i]=np.nan
+    if data2_nona["pus cell"][i]=="normal":
+        data2_nona["pus_cell"][i]="1"
+    elif data2_nona["pus cell"][i]=="abnormal":
+        data2_nona["pus_cell"][i]="2"
+    elif pd.isnull(data2_nona["pus cell"][i]):
+        data2_nona["pus_cell"][i]=np.nan
         
 for i in ind1:
-    if datacat["pus cell clumps"][i]=="notpresent":
-        datacat["pus_cell_clumps"][i]="1"
-    elif datacat["pus cell clumps"][i]=="present":
-        datacat["pus_cell_clumps"][i]="2"
-    elif pd.isnull(datacat["pus cell clumps"][i]):
-        datacat["pus_cell_clumps"][i]=np.nan    
+    if data2_nona["pus cell clumps"][i]=="notpresent":
+        data2_nona["pus_cell_clumps"][i]="1"
+    elif data2_nona["pus cell clumps"][i]=="present":
+        data2_nona["pus_cell_clumps"][i]="2"
+    elif pd.isnull(data2_nona["pus cell clumps"][i]):
+        data2_nona["pus_cell_clumps"][i]=np.nan    
+        
+
+for i in ind1:
+    if data2_nona["bacteria"][i]=="notpresent":
+        data2_nona["bacteria_"][i]="1"
+    elif data2_nona["bacteria"][i]=="present":
+        data2_nona["bacteria_"][i]="2"
+    elif pd.isnull(data2_nona["bacteria"][i]):
+        data2_nona["bacteria_"][i]=np.nan    
+
+for i in ind1:
+    if data2_nona["hypertension"][i]=="yes":
+        data2_nona["hypertension_"][i]="1"
+    elif data2_nona["hypertension"][i]=="no":
+        data2_nona["hypertension_"][i]="2"
+    elif pd.isnull(data2_nona["hypertension"][i]):
+        data2_nona["hypertension_"][i]=np.nan     
+
+for i in ind1:
+    if data2_nona["diabetes mellitus"][i]=="yes":
+        data2_nona["diabetes_mellitus"][i]="1"
+    elif data2_nona["diabetes mellitus"][i]=="no":
+        data2_nona["diabetes_mellitus"][i]="2"
+    elif pd.isnull(data2_nona["diabetes mellitus"][i]):
+        data2_nona["diabetes_mellitus"][i]=np.nan    
+
+for i in ind1:
+    if data2_nona["coronary artery disease"][i]=="yes":
+        data2_nona["coronary_artery_disease"][i]="1"
+    elif data2_nona["coronary artery disease"][i]=="no":
+        data2_nona["coronary_artery_disease"][i]="2"
+    elif pd.isnull(data2_nona["coronary artery disease"][i]):
+        data2_nona["coronary_artery_disease"][i]=np.nan 
         
 for i in ind1:
-    if datacat["pus cell clumps"][i]=="notpresent":
-        datacat["pus_cell_clumps"][i]="1"
-    elif datacat["pus cell clumps"][i]=="present":
-        datacat["pus_cell_clumps"][i]="2"
-    elif pd.isnull(datacat["pus cell clumps"][i]):
-        datacat["pus_cell_clumps"][i]=np.nan                 
+    if data2_nona["appetite"][i]=="good":
+        data2_nona["appetite_"][i]="1"
+    elif data2_nona["appetite"][i]=="poor":
+        data2_nona["appetite_"][i]="2"
+    elif pd.isnull(data2_nona["appetite"][i]):
+        data2_nona["appetite_"][i]=np.nan      
+        
+for i in ind1:
+    if data2_nona["pedal edema"][i]=="no":
+        data2_nona["pedal_edema"][i]="1"
+    elif data2_nona["pedal edema"][i]=="yes":
+        data2_nona["pedal_edema"][i]="2"
+    elif pd.isnull(data2_nona["pedal edema"][i]):
+        data2_nona["pedal_edema"][i]=np.nan    
+        
+for i in ind1:
+    if data2_nona["anemia"][i]=="no":
+        data2_nona["anemia_"][i]="1"
+    elif data2_nona["anemia"][i]=="yes":
+        data2_nona["anemia_"][i]="2"
+    elif pd.isnull(data2_nona["anemia"][i]):
+        data2_nona["anemia_"][i]=np.nan            
  
+       
 for i in ind1:
-    if datacat["bacteria"][i]=="notpresent":
-        datacat["bacteria_"][i]="1"
-    elif datacat["bacteria"][i]=="present":
-        datacat["bacteria_"][i]="2"
-    elif pd.isnull(datacat["bacteria"][i]):
-        datacat["bacteria_"][i]=np.nan    
+    if data2_nona["class"][i]=="ckd":
+        data2_nona["class_"][i]="1"
+    elif data2_nona["class"][i]=="notckd":
+        data2_nona["class_"][i]="2"
+    elif pd.isnull(data2_nona["class"][i]):
+        data2_nona["class_"][i]=np.nan 
 
-for i in ind1:
-    if datacat["hypertension"][i]=="yes":
-        datacat["hypertension_"][i]="1"
-    elif datacat["hypertension"][i]=="no":
-        datacat["hypertension_"][i]="2"
-    elif pd.isnull(datacat["hypertension"][i]):
-        datacat["hypertension_"][i]=np.nan     
-
-for i in ind1:
-    if datacat["diabetes mellitus"][i]=="yes":
-        datacat["diabetes_mellitus"][i]="1"
-    elif datacat["diabetes mellitus"][i]=="no":
-        datacat["diabetes_mellitus"][i]="2"
-    elif pd.isnull(datacat["diabetes mellitus"][i]):
-        datacat["diabetes_mellitus"][i]=np.nan    
-
-for i in ind1:
-    if datacat["coronary artery disease"][i]=="yes":
-        datacat["coronary_artery_disease"][i]="1"
-    elif datacat["coronary artery disease"][i]=="no":
-        datacat["coronary_artery_disease"][i]="2"
-    elif pd.isnull(datacat["coronary artery disease"][i]):
-        datacat["coronary_artery_disease"][i]=np.nan 
-        
-for i in ind1:
-    if datacat["appetite"][i]=="good":
-        datacat["appetite_"][i]="1"
-    elif datacat["appetite"][i]=="poor":
-        datacat["appetite_"][i]="2"
-    elif pd.isnull(datacat["appetite"][i]):
-        datacat["appetite_"][i]=np.nan      
-        
-for i in ind1:
-    if datacat["pedal edema"][i]=="good":
-        datacat["pedal_edema"][i]="1"
-    elif datacat["pedal edema"][i]=="poor":
-        datacat["pedal_edema"][i]="2"
-    elif pd.isnull(datacat["pedal edema"][i]):
-        datacat["pedal_edema"][i]=np.nan    
-        
-for i in ind1:
-    if datacat["anemia"][i]=="no":
-        datacat["anemia_"][i]="1"
-    elif datacat["anemia"][i]=="yes":
-        datacat["anemia_"][i]="2"
-    elif pd.isnull(datacat["anemia"][i]):
-        datacat["anemia_"][i]=np.nan            
- 
-for i in ind1:
-    if datacat["anemia"][i]=="no":
-        datacat["anemia_"][i]="1"
-    elif datacat["anemia"][i]=="yes":
-        datacat["anemia_"][i]="2"
-    elif pd.isnull(datacat["anemia"][i]):
-        datacat["anemia_"][i]=np.nan      
-        
-for i in ind1:
-    if datacat["class"][i]=="ckd":
-        datacat["class_"][i]="1"
-    elif datacat["class"][i]=="notckd":
-        datacat["class_"][i]="2"
-    elif pd.isnull(datacat["class"][i]):
-        datacat["class_"][i]=np.nan  
 
 
 
