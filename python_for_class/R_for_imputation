@@ -1,0 +1,5 @@
+require(data.table)
+require(DMwR)
+a=fread("123.csv",header=TRUE,sep=",")
+imputeData <- knnImputation(a)
+write.table(imputeData, file = "test.CSV", sep = ",")
