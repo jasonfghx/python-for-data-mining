@@ -1,0 +1,6 @@
+from sklearn import datasets
+boston = datasets.load_boston()
+y = boston.target
+newbo=boston.data
+colu=boston.feature_names
+newboston=pd.DataFrame(newbo,columns=colu)
