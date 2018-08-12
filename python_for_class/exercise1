@@ -221,5 +221,8 @@ dummydata[cols]
 for col in cols:
     col_zscore = col + '_zscore'
     dummydata[col_zscore] = (dummydata[col] - dummydata[col].mean())/dummydata[col].std(ddof=0)
-    
-np.where(dummydata["potassium_zscore"]>12)   
+############移除離群值    
+np.where(dummydata["potassium_zscore"]>12)[0]   
+dummydata1=dummydata.drop(a)
+
+dummydata1=dummydata[dummydata["white blood cell count"]<2 ]
