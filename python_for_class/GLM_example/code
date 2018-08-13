@@ -1,1 +1,11 @@
-1
+data3 = pd.read_csv("59.csv",header=0,sep=",")
+data1_new=data3
+data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]]=round(data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]])
+data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]]=data1_new[["albumin","sugar","red_blood_cells","pus_cell","pus_cell_clumps","bacteria_","hypertension_","diabetes_mellitus","coronary_artery_disease","appetite_","pedal_edema","anemia_","class_"]].astype('category')
+#轉啞變數
+dummydata=pd.get_dummies(data1_new)
+dummydata1=dummydata.drop(["albumin_0.0","sugar_0.0","red_blood_cells_1.0","pus_cell_1.0","pus_cell_clumps_1","bacteria__1","hypertension__1","diabetes_mellitus_0","coronary_artery_disease_1","appetite__1","pedal_edema_1","anemia__1","class__1","class__2"],axis = 1)
+dummydata1y=dummydata["class__1"]
+y = dummydata1y
+x=sm.add_constant(dummydata1)
+X_train,X_test, y_train, y_test = train_test_split(x, y, test_size = 0.25, random_state = 2018)
