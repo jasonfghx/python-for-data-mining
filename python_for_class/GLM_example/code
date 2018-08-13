@@ -18,3 +18,11 @@ regr=stm.GLM(y_train,X_train)
 res=regr.fit()
 st, data1, ss2 = summary_table(res)
 res.summary()
+pre=round(res.predict(X_test))
+a=confusion_matrix(pre, y_test)
+
+
+plot_confusion_matrix(cm           = a, 
+                      normalize    = False,
+                      target_names = ['0', '1'],
+                      title        = "Confusion Matrix")    
