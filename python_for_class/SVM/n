@@ -1,1 +1,52 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+df = pd.read_csv('voice.csv')
+X=df.iloc[:, :-1]#擷取變數項
+Y=df.iloc[:, -1:] #擷取待預測項
+gender_encoder = LabelEncoder()
+y = gender_encoder.fit_transform(Y)#將文字label轉為數字
+scaler = StandardScaler()#標準化
+scaler.fit(X)
+X = scaler.transform(X)    
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)#分為train test項
+svc=SVC(kernel='linear') 
+#SVC內的kernel可以為linear、poly、rbf、sigmoid
+svc.fit(X_train,y_train)
+y_pred=svc.predict(X_test)
+print('Accuracy Score:')
+print(metrics.accuracy_score(y_test,y_pred))
+confusion_matrix(y_pred, y_test)
+############tune 參數 ################
+#針對C值跑loop求最佳值
+C_range=list(np.arange(0.1,6,0.1))
+acc_score=[]
+for c in C_range:
+    svc = SVC(kernel='linear', C=c)
+    scores = cross_val_score(svc, X, y, cv=10, scoring='accuracy')
+    acc_score.append(scores.mean( ))
+
+plt.plot(C_range,acc_score)
+plt.xticks(np.arange(0.0,6,0.3))
+plt.xlabel('Value of C for SVC ')
+plt.ylabel('Cross-Validated Accuracy')
+
+####有效率的試參數
+from sklearn.grid_search import GridSearchCV
+tuned_parameters = 
+{ 'C': (np.arange(0.1,1,0.1)) , 'kernel': ['linear'], 
+  'C': (np.arange(0.1,1,0.1)) , 'gamma': [0.01,0.02,0.03,0.04,0.05], 'kernel': ['rbf'], 'degree': [2,3,4] ,'gamma':[0.01,0.02,0.03,0.04,0.05], 'C':(np.arange(0.1,1,0.1)) , 'kernel':['poly'] }
+model_svm = GridSearchCV(svm_model, tuned_parameters,cv=10,scoring='accuracy')
+
+model_svm.fit(X_train, y_train)
+print(model_svm.best_score_)
+print(model_svm.best_params_)
 
