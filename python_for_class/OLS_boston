@@ -1,4 +1,5 @@
 from sklearn import datasets
+import matplotlib.pyplot as plt
 boston = datasets.load_boston()
 y = boston.target
 newbo=boston.data
