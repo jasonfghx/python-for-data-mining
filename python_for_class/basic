@@ -29,3 +29,6 @@ else:
     print("not bad")
 #tuple
 a=(1,"ab",2,9,10)
+
+#############去除某欄
+X1=df.drop(df.columns[[0,2,3]],axis=1)
