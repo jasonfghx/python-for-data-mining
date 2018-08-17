@@ -1,18 +1,27 @@
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier  
+from sklearn.ensemble import RandomForestClassifier  #隨機森林
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier#決策樹
+from sklearn import metrics
+url1="http://archive.ics.uci.edu/ml/machine-learning-databases/00198/Faults27x7_var"
+name=pd.read_csv(url1,header=None)[0]#載入標題
 url="http://archive.ics.uci.edu/ml/machine-learning-databases/00198/Faults.NNA"
 df = pd.read_csv(url,sep="\t",header=None,names=name)
-
-
-url1="http://archive.ics.uci.edu/ml/machine-learning-databases/00198/Faults27x7_var"
-name=pd.read_csv(url1,header=None)[0]
-df["type"]=0
+df["type"]=0#增加一欄
 ind=np.where(df["Other_Faults"]==1)
 ind1=list(ind)
 df.loc[ind1[0],"type"]=6
 df["type"]=df["type"].astype('category')
 X=df.iloc[:, :-8]
-
 y=df.iloc[:, -1:]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+
+########################決策樹
+tree = DecisionTreeClassifier(criterion = 'gini', random_state=0)
+tree.fit(X_train,y_train)
+pretree=tree.predict(X_test)
+print(metrics.accuracy_score(y_test,pretree))
+########################隨機森林
+
+
