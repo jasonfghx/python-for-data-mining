@@ -23,5 +23,8 @@ tree.fit(X_train,y_train)
 pretree=tree.predict(X_test)
 print(metrics.accuracy_score(y_test,pretree))
 ########################隨機森林
-
+rf = RandomForestClassifier(n_estimators = 10000, random_state = 100,max_depth=50)
+rf.fit(X_train,y_train)
+y_pred = rf.predict(X_test)
+print(metrics.accuracy_score(y_test,y_pred))
 
