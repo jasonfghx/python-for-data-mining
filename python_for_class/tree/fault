@@ -30,3 +30,17 @@ print(metrics.accuracy_score(y_test,y_pred))
 
 ######################tune parameter
 from sklearn.grid_search import GridSearchCV
+param_test1 = {'max_depth':list(range(3,5,2)), 'min_samples_split':list(range(50,60,20))}
+param_test1 = {'min_samples_split':list(range(50,60,5))}
+clf = GridSearchCV(RandomForestClassifier(n_estimators = 10000, random_state = 100), param_test1)
+clf.fit(X_train,aaaa)
+aaaa=y_train["type"]
+clf.grid_scores_, clf.best_params_, clf.best_score_
+#######################################################################
+clf.grid_scores_, clf.best_params_, clf.best_score_
+Out[400]: 
+([mean: 0.72358, std: 0.02391, params: {'min_samples_split': 50},
+  mean: 0.72036, std: 0.02467, params: {'min_samples_split': 55}],
+ {'min_samples_split': 50},
+ 0.7235824742268041)
+ #######################################################################
