@@ -42,6 +42,7 @@ print(metrics.accuracy_score(y_test,ab))  #準確率為77%
 
 from sklearn.metrics import confusion_matrix
 a=confusion_matrix(y_test,ab)
+#y_test is y axis  ab is x axis
 plot_confusion_matrix(cm           = a, 
                       normalize    = False,
                       target_names = ['0', '1',"2","3","4","5","6"],
