@@ -1,0 +1,42 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler #務必使數據標準化
+from sklearn.model_selection import train_test_split
+from keras.utils import np_utils, generic_utils #使y變數變成稀疏矩陣
+from keras.models import Sequential
+from keras.layers import Dense
+from sklearn import metrics
+df = pd.read_csv('steeldata.csv')
+X=df.iloc[:, :-8]
+y=df.iloc[:, -1:]
+scaler = StandardScaler()
+scaler.fit(X)
+X = scaler.transform(X)    
+X_train,X_test, y_train,y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+y_test=np_utils.to_categorical(y_test,num_classes=7)
+y_train=np_utils.to_categorical(y_train,num_classes=7)
+classifier = Sequential() #建置一個初始化的類神經網路模型。
+classifier.add(Dense(units = 64, kernel_initializer = 'uniform', activation = 'relu',input_dim = 27))
+#首先我們建立第一層，20個node，權重是要訓練的，賦予uniform作為初始值，
+#input_dim=27表示我們有27個變數要進入該模型。
+
+classifier.add(Dense(units = 32, kernel_initializer = 'uniform', activation = 'relu'))
+#建立第二層，16個node。
+
+classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+#建立第三層，6個node，以本數據來看，多這層導致overfitting，因此除去。
+
+classifier.add(Dense(units = 7, kernel_initializer = 'normal', activation = 'softmax'))
+from keras.callbacks import EarlyStopping
+early_stopping = EarlyStopping(monitor='acc', patience=20, verbose=2)
+classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+classifier.fit(X_train, y_train, batch_size = 40, epochs = 300, callbacks=[early_stopping],validation_data=(X_test, y_test))
+ 
+y_pred = round(pd.DataFrame(classifier.predict(X_test)))#預測
+
+
+ab= pd.DataFrame(np.empty([389,1]))
+for i in range(0,389):
+    ab.iloc[i,0]=pd.DataFrame(np.where(y_pred.iloc[i,:]==y_pred.iloc[i,:].max())[0]).iloc[0,0]
+print(metrics.accuracy_score(y_test,ab))  #準確率為77%
+
