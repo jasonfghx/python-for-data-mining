@@ -33,6 +33,6 @@ classifier.compile(optimizer = 'sgd', loss = 'mse', metrics = ['mse'])#optimizer
 classifier.fit(X_train, y_train, batch_size = 50, epochs = 230)
 
 y_pred = (pd.DataFrame(classifier.predict(X_test)))
-
+y_test1=pd.DataFrame(y_test)
 mse_y15=np.mean((y_test1.loc[:,0]-y_pred.loc[:,0])**2)###評估誤差
 mse_y25=np.mean((y_test1.loc[:,1]-y_pred.loc[:,1])**2)
