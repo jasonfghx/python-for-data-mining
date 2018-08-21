@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from keras.utils import np_utils, generic_utils
+from sklearn.preprocessing import StandardScaler
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+from keras.layers.core import Dense, RepeatVector
+
+df = pd.read_csv('DM_Assignment_4_NN.csv')
+df=df.drop(df.columns[[0]],axis=1)
+X=df.iloc[:, :-2]
+X1=df.drop(df.columns[[0,2,3,20]],axis=1)
+y=df.iloc[:, -2:]
