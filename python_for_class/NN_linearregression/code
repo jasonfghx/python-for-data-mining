@@ -16,3 +16,19 @@ df=df.drop(df.columns[[0]],axis=1)
 X=df.iloc[:, :-2]
 X1=df.drop(df.columns[[0,2,3,20]],axis=1)
 y=df.iloc[:, -2:]
+scaler = StandardScaler()
+scaler.fit(X)
+X = scaler.transform(X)    
+scaler = StandardScaler()
+scaler.fit(y)
+y = scaler.transform(y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+from keras.models import Sequential
+from keras.layers import Dense
+classifier = Sequential()
+classifier.add(Dense(units = 20, kernel_initializer = 'uniform', activation = 'linear',input_dim = 4))
+classifier.add(Dense(output_dim=2))
+classifier.compile(optimizer = 'sgd', loss = 'mse', metrics = ['mse'])
+classifier.fit(X_train, y_train, batch_size = 50, epochs = 230)
+
+y_pred = (pd.DataFrame(classifier.predict(X_test)))
