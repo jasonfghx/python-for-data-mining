@@ -22,7 +22,7 @@ import pandas as pd
 import ipywidgets as widgets
 from IPython.display import display
 
-datacon=pd.DataFrame("F:\\Libraries\\reaction\\Desktop\\concrete_data.csv")
+datacon=pd.read_csv("F:\\Libraries\\reaction\\Desktop\\concrete_data.csv")
 
 blast_furnace_slag = go.Histogram(
     x=datacon["blast_furnace_slag"],
