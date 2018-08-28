@@ -1,3 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+import plotly.offline as py
+import plotly.tools as tls
+import plotly.graph_objs as go
+py.init_notebook_mode(connected=True)
+%matplotlib inline
+import plotly.figure_factory as FF
+
+
+import sys
+import warnings
+
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+
+from ipywidgets import interact, interactive, fixed
+import pandas as pd
+import ipywidgets as widgets
+from IPython.display import display
+
 fig1 = go.Scatter3d(
     x=datacon["cement"], y=datacon["fly_ash"], z=datacon["concrete_compressive_strength"],
     mode='markers',
