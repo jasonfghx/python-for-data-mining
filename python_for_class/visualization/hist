@@ -1,0 +1,48 @@
+blast_furnace_slag = go.Histogram(
+    x=datacon["blast_furnace_slag"],
+    opacity=0.75,
+    name="blast_furnace_slag"
+)
+fine_aggregate = go.Histogram(
+    x=datacon["fine_aggregate "],
+    opacity=0.75,
+    name="fine_aggregate"
+)
+age= go.Histogram(
+    x=datacon["age"],
+    opacity=0.75,
+    name="age"
+)
+cement= go.Histogram(
+    x=datacon["cement"],
+    opacity=0.65,
+    name="cement"
+)
+fly_ash= go.Histogram(
+    x=datacon["fly_ash"],
+    opacity=0.75,
+    name="fly_ash"
+)
+water= go.Histogram(
+    x=datacon["water"],
+    opacity=0.75,
+    name="water"
+)
+superplasticizer= go.Histogram(
+    x=datacon["superplasticizer"],
+    opacity=0.75,
+    name="superplasticizer"
+)
+coarse_aggregate= go.Histogram(
+    x=datacon["coarse_aggregate"],
+    opacity=0.75,
+    name="coarse_aggregate"
+)
+data = [blast_furnace_slag, fine_aggregate,age,cement,fly_ash,water,superplasticizer,coarse_aggregate]
+layout = go.Layout(barmode='overlay',legend=dict(
+        x=0.1,
+        y=0.8
+    ))
+fig = go.Figure(data=data, layout=layout)
+
+py.iplot(fig, filename='overlaid histogram')
