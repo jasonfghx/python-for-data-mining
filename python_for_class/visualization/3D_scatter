@@ -1,0 +1,59 @@
+fig1 = go.Scatter3d(
+    x=datacon["cement"], y=datacon["fly_ash"], z=datacon["concrete_compressive_strength"],
+    mode='markers',
+    marker=dict(
+        size=12,
+        line=dict(
+            color='rgba(217, 217, 217, 0.14)',
+            width=0.5
+        ),
+        opacity=0.8
+    )
+)
+
+noaxisx=dict(showbackground=True,
+            showline=True,  
+            zeroline=True,
+            showgrid=True,
+            showticklabels=False,
+            showaxeslabels=True,
+            title='cement' 
+          )
+noaxisy=dict(showbackground=True,
+            showline=True,  
+            zeroline=True,
+            showgrid=True,
+            showticklabels=False,
+            showaxeslabels=True,
+            title='fly_ash' 
+          )
+noaxisz=dict(showbackground=True,
+            showline=True,  
+            zeroline=True,
+            showgrid=True,
+            showticklabels=False,
+            showaxeslabels=True,
+            title='concrete_compressive_strength' 
+          )
+
+
+    
+
+
+data = [trace1]
+layout = go.Layout(
+    margin=dict(
+        l=0,
+        r=0,
+        b=0,
+        t=1
+    ),
+    scene=dict(xaxis=noaxisx,
+                                      yaxis=noaxisy, 
+                                      zaxis=noaxisz, 
+                                           
+                                     )
+    
+)
+fig = go.Figure(data=data, layout=layout)
+py.iplot(fig, filename='simple-3dscatter')
