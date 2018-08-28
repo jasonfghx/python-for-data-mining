@@ -1,0 +1,47 @@
+t=go.Box(
+y=datacon["cement"],
+    opacity=0.75,
+    name="cement"
+)
+t1=go.Box(
+y=datacon["blast_furnace_slag"],
+    opacity=0.95,
+    name="blast_furnace_slag"
+)
+t2=go.Box(
+y=datacon["fly_ash"],
+    opacity=0.75,
+    name="fly_ash"
+)
+t3=go.Box(
+y=datacon["water"],
+    opacity=0.75,
+    name="water"
+)
+t4=go.Box(
+y=datacon["superplasticizer"],
+    opacity=0.75,
+    name="superplasticizer"
+)
+t5=go.Box(
+y=datacon["coarse_aggregate"],
+    opacity=0.75,
+    name="coarse_aggregate"
+)
+t6=go.Box(
+y=datacon["fine_aggregate "],
+    opacity=0.75,
+    name="fine_aggregate "
+)
+t7=go.Box(
+y=datacon["age"],
+    opacity=0.75,
+    name="age"
+)
+t8=go.Box(
+y=datacon["concrete_compressive_strength"],
+    opacity=0.5,
+    name="concrete_compressive_strength"
+)
+data=[t,t1,t2,t3,t4,t5,t6,t7,t8]
+py.iplot(data)
