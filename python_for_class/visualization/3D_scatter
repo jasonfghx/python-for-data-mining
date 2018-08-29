@@ -83,3 +83,55 @@ fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='simple-3dscatter')
 
 https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf
+
+
+
+from scipy.spatial import Delaunay
+points2D = np.vstack([datacon["cement"],datacon["fly_ash"]]).T
+tri = Delaunay(points2D)
+simplices = tri.simplices
+fig1 = FF.create_trisurf(x=datacon["cement"], y=datacon["fly_ash"], z=datacon["concrete_compressive_strength"],
+                         simplices=simplices,
+                         title="Torus",
+                         
+                        )
+noaxisx=dict(showbackground=True,
+            showline=True,  
+            zeroline=True,
+            showgrid=True,
+            showticklabels=False,
+            showaxeslabels=True,
+            title='cement' 
+          )
+noaxisy=dict(showbackground=True,
+            showline=True,  
+            zeroline=True,
+            showgrid=True,
+            showticklabels=False,
+            showaxeslabels=True,
+            title='fly_ash' 
+          )
+noaxisz=dict(showbackground=True,
+            showline=True,  
+            zeroline=True,
+            showgrid=True,
+            showticklabels=False,
+            showaxeslabels=True,
+            title='concrete_compressive_strength' 
+          )
+fig1['layout'].update(dict(title="concrete",
+                           width=1000,
+                           height=1000,
+                           scene=dict(xaxis=noaxisx,
+                                      yaxis=noaxisy, 
+                                      zaxis=noaxisz, 
+                                           
+                                     )
+                           )
+                     )
+fig2 = dict(data=fig1,layout=layout)
+
+#fig = dict(data=fig1, layout=layout)
+
+py.iplot(fig2, filename='relayout_option_dropdown')
+
