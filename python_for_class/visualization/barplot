@@ -1,0 +1,29 @@
+trace1 = go.Bar(
+    x=(stock["Unnamed: 0"]),
+
+    y=stock["s"],
+    name='推銷'
+)
+trace2 = go.Bar(
+    x=stock["Unnamed: 0"],
+    y=stock["m"],
+    name='管理'
+)
+trace3 = go.Bar(
+    x=stock["Unnamed: 0"],
+    y=stock["r"],
+    name='研發'
+)
+
+data = [trace1, trace2,trace3]
+
+
+layout = go.Layout(title="營業費用",barmode='stack',legend=dict(
+        x=1,
+        y=1
+    ),
+                   xaxis=dict(titlefont=dict( size=10  ) )
+                  )
+fig = go.Figure(data=data, layout=layout)
+
+py.iplot(fig, filename='overlaid histogram')
