@@ -1,0 +1,12 @@
+labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
+values = [4500,2500,1053,500]
+
+
+trace = go.Pie(labels=labels, values=values,domain= {"x": [0, .33]},name="ex1")
+trace1 = go.Pie(labels=labels, values=values,domain= {"x": [0.34, 0.66]},name="ex2",pull=.2)
+trace2 = go.Pie(labels=labels, values=values,domain= {"x": [0.67, 1]},hole=.4,name="ex3",textposition='outside')
+layout = go.Layout(title="ex",
+                  )
+data=[trace,trace1,trace2]
+fig = go.Figure(data=data, layout=layout)
+py.iplot(fig, filename='basic_pie_chart')
