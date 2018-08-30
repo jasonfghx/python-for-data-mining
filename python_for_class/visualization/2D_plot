@@ -1,0 +1,64 @@
+trace1 = go.Scatter(
+    x=datacon["cement"], y=datacon["concrete_compressive_strength"], mode='markers', name='points',
+    marker=dict(color='rgb(102,0,0)', size=2, opacity=0.4)
+)
+trace2 = go.Histogram2dcontour(
+    x=datacon["cement"], y=datacon["concrete_compressive_strength"], name='density', ncontours=20,
+    colorscale='Hot', reversescale=True, showscale=True
+)
+trace3 = go.Histogram(
+    x=datacon["cement"], name='x density',
+    marker=dict(color='rgb(102,0,0)'),
+    xbins=dict(
+        
+        size=50
+    ),
+    yaxis='y2'
+)
+trace4 = go.Histogram(
+    y=datacon["concrete_compressive_strength"], name='y density', marker=dict(color='rgb(102,0,0)'),
+    xaxis='x2'
+)
+data = [trace1, trace2, trace3, trace4]
+
+layout = go.Layout(
+    showlegend=False,
+    autosize=False,
+    width=600,
+    height=550,
+    xaxis=dict(
+        domain=[0, 0.85],
+        showgrid=False,
+        zeroline=False,
+        showline = True,
+        mirror='ticks',
+        title="cement"
+        
+    ),
+    yaxis=dict(
+        domain=[0, 0.85],
+        showgrid=False,
+        zeroline=False,
+        showline = True,
+        mirror='ticks',
+        title="concrete_compressive_strength"
+    ),
+    margin=dict(
+        t=50
+    ),
+    hovermode='closest',
+    bargap=0,
+    xaxis2=dict(
+        domain=[0.85, 1],
+        showgrid=False,
+        zeroline=False
+    ),
+    yaxis2=dict(
+        domain=[0.85, 1],
+        showgrid=False,
+        zeroline=False
+    )
+)
+
+fig = go.Figure(data=data, layout=layout)
+plot_url = py.iplot(fig, filename='2dhistogram-2d-density-plot-subplots')
