@@ -34,3 +34,6 @@ a=(1,"ab",2,9,10)
 X1=df.drop(df.columns[[0,2,3]],axis=1)
 ############去除某列
 X1=df.drop(df.index[[0,2,3,20]],axis=0)
+
+#####################創造dataframe
+df1=pd.DataFrame([[1,2,3],[NaN,NaN,2],[NaN,NaN,NaN],[8,8,NaN]],columns=("a","b","c"))
